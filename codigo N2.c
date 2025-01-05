@@ -2,28 +2,25 @@
 
 int main(int argc, char *argv[])
 {
-    int numero,numero2,pares=0,impares=0;
-    char continuar;
+    float diametro, altura, sumaDiametro = 0, sumaAltura = 0;
+    int contador = 0;
+    char respuesta;
     do
     {
-        printf("Ingrese un numero >>> ");
-        scanf("%d", &numero);
-        numero2 = numero % 2;
-        if (numero2 == 0)
-        {
-            pares = pares + 1;
-        }
-        else
-        {
-            impares = impares + 1;
-        }
-        printf("Cantidad de numeros pares: %d\n", pares);
-        printf("Cantidad de numeros impares: %d\n", impares);
+        printf("Ingresa el diámetro del tronco: ");
+        scanf("%f", &diametro);
 
-        printf("Quiere seguir añadiendo numeros S/N\n");
-        printf(">>>");
-        scanf(" %c", &continuar);
-    } while (continuar == 'S' || continuar == 's');
-    printf("Adios");
+        printf("Ingresa la altura del tronco: ");
+        scanf("%f", &altura);
+
+        sumaDiametro = sumaDiametro + diametro;
+        sumaAltura = sumaAltura + altura;
+        contador = contador + 1;
+
+        printf("¿Deseas ingresar otro tronco? (S/N): ");
+        scanf(" %c", &respuesta);
+    } while (respuesta == 'S' || respuesta == 's');
+    printf("Promedio de diámetro: %.2f\n", sumaDiametro / contador);
+    printf("Promedio de altura: %.2f\n", sumaAltura / contador);
     return 0;
 }
